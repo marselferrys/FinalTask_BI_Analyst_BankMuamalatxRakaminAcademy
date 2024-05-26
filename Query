@@ -1,0 +1,12 @@
+SELECT o.Date order_date,
+pc.CategoryName category_name,
+p.ProdName product_name,
+p.Price product_price,
+o.Quantity order_qty,
+p.Price*o.Quantity total_sales,
+c.CustomerEmail cust_email,
+c.CustomerCity cust_city
+from secret-tide-422307-s0.bank_muamalat.Orders o
+left join secret-tide-422307-s0.bank_muamalat.Products p on o.ProdNumber = p.ProdNumber
+left join secret-tide-422307-s0.bank_muamalat.ProductCategory pc on p.Category = pc.CategoryID
+left join secret-tide-422307-s0.bank_muamalat.Customers c on o.CustomerID = c.CustomerID
